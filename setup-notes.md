@@ -30,5 +30,5 @@ https://github.com/camjjack/hyper-v-packer-templates
 choco install ruby
 
 Get-VMSwitch
-$Env:<variable-name> = "InternalNAT"
+$Env:hyperv_switchname = "InternalNAT"
 
