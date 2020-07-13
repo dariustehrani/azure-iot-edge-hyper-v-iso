@@ -28,3 +28,7 @@ TCP -LocalPort 8000-9000
 https://github.com/camjjack/hyper-v-packer-templates
 
 choco install ruby
+
+Get-VMSwitch
+$Env:<variable-name> = "InternalNAT"
+

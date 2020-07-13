@@ -1,0 +1,61 @@
+{ 
+"variables": {
+    "cpu": "2",
+    "disk_size": "21440",
+    "hyperv_switchname": "{{env `hyperv_switchname`}}",
+    "iso_checksum": "87bedd68607f059ca973f86346bbdf1caa6e1077",
+    "iso_checksum_type": "sha1",
+    "iso_url": "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.1-server-amd64.iso",
+    "password": "iotedge",
+    "ram_size": "2048",
+    "username": "iotedge",
+    "vm_name": "ubuntu-iotedge"
+  },
+
+"builders": [
+    {
+      "boot_command": [
+        "<esc><wait10><esc><esc><enter><wait>",
+        "set gfxpayload=1024x768<enter>",
+        "linux /install/vmlinuz ",
+        "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/18.04/preseed.cfg ",
+        "debian-installer=en_US.UTF-8 auto locale=en_US.UTF-8 kbd-chooser/method=us ",
+        "hostname={{.Name}} ",
+        "fb=false debconf/frontend=noninteractive ",
+        "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
+        "keyboard-configuration/variant=USA console-setup/ask_detect=false <enter>",
+        "initrd /install/initrd.gz<enter>",
+        "boot<enter>"
+      ],
+      "boot_wait": "5s",
+      "communicator": "ssh",
+      "cpus": "{{user `cpu`}}",
+      "disk_size": "{{user `disk_size`}}",
+      "enable_secure_boot": false,
+      "generation": 2,
+      "guest_additions_mode": "disable",
+      "http_directory": "./linux/ubuntu/http/",
+      "iso_checksum": "{{user `iso_checksum_type`}}:{{user `iso_checksum`}}",
+      "iso_url": "{{user `iso_url`}}",
+      "memory": "{{user `ram_size`}}",
+      "shutdown_command": "echo 'shutdown' | sudo -S -E shutdown -P now",
+      "ssh_password": "{{user `password`}}",
+      "ssh_timeout": "4h",
+      "ssh_username": "{{user `username`}}",
+      "switch_name": "{{user `hyperv_switchname`}}",
+      "type": "hyperv-iso",
+      "vm_name": "{{user `vm_name`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "execute_command": "echo 'running scripts' | sudo -S -E sh {{.Path}}",
+      "scripts": [
+        "./linux/ubuntu/update.sh",
+        "./linux/ubuntu/cleanup.sh"
+      ],
+      "type": "shell"
+    }
+  ]
+}
+
