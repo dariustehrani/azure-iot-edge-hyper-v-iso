@@ -6,9 +6,9 @@
     "iso_checksum": "80f7872cb6bee3b5d7538d0edea8f3ff5ff89776",
     "iso_checksum_type": "sha1",
     "iso_url": "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.4-server-amd64.iso",
+    "username": "iotedge",
     "password": "iotedge",
     "ram_size": "2048",
-    "username": "iotedge",
     "vm_name": "ubuntu-iotedge"
   },
 
@@ -49,7 +49,7 @@
   ],
   "provisioners": [
     {
-      "execute_command": "echo 'running scripts' | sudo -S -E sh {{.Path}}",
+      "execute_command": "echo 'iotedge' | sudo -S -E sh {{.Path}}",
       "scripts": [
         "./linux/ubuntu/update.sh",
         "./linux/ubuntu/cleanup.sh"

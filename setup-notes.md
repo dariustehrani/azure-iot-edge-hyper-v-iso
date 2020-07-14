@@ -18,14 +18,13 @@ col = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Ob
 g('https://chocolatey.org/install.ps1'))
 
 choco install packer
+choco install openssh
+ssh-keygen
 
 https://github.com/camjjack/hyper-v-packer-templates
 
 PS C:\Users\AzureUser> New-NetFirewallRule -DisplayName "Packer_http_server" -Direction Inbound -Action Allow -Protocol
 TCP -LocalPort 8000-9000
-
-
-https://github.com/camjjack/hyper-v-packer-templates
 
 choco install ruby
 
