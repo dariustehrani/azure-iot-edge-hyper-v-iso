@@ -1,7 +1,10 @@
 # Build a Hyper-V ISO for IoT Edge Runtime with Packer
 
 * Install Hyper-V on an Azure SKU supporting nested VMs.
-* Attach a Premium Storage disk with sufficient throughput 
+* Attach a Premium Storage disk with sufficient throughput (<- there will be a lot of file operations)
+* Format the Volume and assign a driveletter
+* Now set the disk in Hyper-V Manager. (right-click on the servername, edit disk)
+see https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nested-virtualization
 
 # Networking Notes
 -> from here run in Powershell+Admin Privs
@@ -40,7 +43,7 @@ ssh-keygen
 ````
 ### configure Windows Firewall
 ````
-PS C:\Users\AzureUser> New-NetFirewallRule -DisplayName "Packer_http_server" -Direction Inbound -Action Allow -Protocol
+New-NetFirewallRule -DisplayName "Packer_http_server" -Direction Inbound -Action Allow -Protocol
 TCP -LocalPort 8000-9000
 ````
 
@@ -49,4 +52,5 @@ REBOOT NOW!
 ## Set Environment Variables for Packer
 Get-VMSwitch
 $Env:hyperv_switchname = "InternalNAT"
+
 
