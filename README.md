@@ -1,7 +1,9 @@
 # Build a Hyper-V ISO for IoT Edge Runtime with Packer
 
 * Install Hyper-V on an Azure SKU supporting nested VMs.
-* Attach a Premium Storage disk with sufficient throughput (<- there will be a lot of file operations) 
+* Attach a Premium Storage disk with sufficient throughput (<- there will be a lot of file operations)
+* Format the Volume and assign a driveletter
+* Now set the disk in Hyper-V Manager. (right-click on the servername, edit disk)
 see https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nested-virtualization
 
 # Networking Notes
