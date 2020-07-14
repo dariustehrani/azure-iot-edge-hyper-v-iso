@@ -7,6 +7,5 @@ apt-get -y update
 apt-get -y dist-upgrade
 
 # Apt dependencies
-apt-get -y install linux-virtual-lts-xenial linux-tools-virtual-lts-xenial linux-cloud-tools-virtual-lts-xenial
-apt-get install apt-transport-https lsb-release software-properties-common dirmngr dkms curl git -y
+apt-get install apt-transport-https lsb-release software-properties-common dirmngr curl git -y
 
