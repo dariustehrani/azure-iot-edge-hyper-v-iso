@@ -11,5 +11,5 @@ apt-get -y clean
 rm -rf /tmp/*
 
 # Zero out free space
-dd if=/dev/zero of=/EMPTY bs=1M
-rm -f /EMPTY
+#dd if=/dev/zero of=/EMPTY bs=1M
+#rm -f /EMPTY
