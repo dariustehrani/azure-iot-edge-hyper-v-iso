@@ -3,7 +3,7 @@ DEBIAN_FRONTEND=noninteractive
 
 # Clean up
 purge-old-kernels
-apt-get -y remove dkms 
+#apt-get -y remove dkms 
 apt-get -y autoremove --purge
 apt-get -y clean
 

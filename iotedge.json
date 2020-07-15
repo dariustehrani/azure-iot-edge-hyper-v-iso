@@ -52,6 +52,7 @@
       "execute_command": "echo 'iotedge' | sudo -S -E sh {{.Path}}",
       "scripts": [
         "./linux/ubuntu/update.sh",
+        "./linux/ubuntu/iot-edge.sh",
         "./linux/ubuntu/cleanup.sh"
       ],
       "type": "shell"

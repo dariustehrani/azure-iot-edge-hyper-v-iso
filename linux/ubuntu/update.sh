@@ -7,5 +7,6 @@ apt-get -y update
 apt-get -y dist-upgrade
 
 # Apt dependencies
-apt-get install apt-transport-https lsb-release software-properties-common dirmngr curl git -y
+# outsourcing those items to preseed...
+# apt-get install apt-transport-https lsb-release software-properties-common dirmngr curl git -y
 

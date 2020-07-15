@@ -18,4 +18,4 @@ apt-get update -y
 apt-get install moby-engine moby-cli -y
 
 # MAKE SURE TO PIN THIS TO A FIXED VERSION FOR PRODUCTION
-apt-get install iotedge
+apt-get install iotedge -y
