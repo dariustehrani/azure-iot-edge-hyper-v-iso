@@ -49,8 +49,10 @@ TCP -LocalPort 8000-9000
 
 REBOOT NOW!
 
-## Set Environment Variables for Packer
+## Set Environment Variables for Packer and run it.
+````
 Get-VMSwitch
 $Env:hyperv_switchname = "InternalNAT"
-
+packer build .\iotedge.json
+````
 
